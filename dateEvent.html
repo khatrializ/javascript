@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="https://kit.fontawesome.com/1691a6f9b3.js"
+    crossorigin="anonymous"
+></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            color: rgba(255, 10, 0);
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            text-align: center;
+        }
+        .clockholder {
+            background:gray;
+            padding: 20px;
+            border-radius: 50px;
+            width: 200px;
+            box-shadow: 5px 5px 25px rgba(255, 0, 0);
+        }
+        
+        .timeoption{
+            height: 2vh;
+        }
+        
+        .timeoption i {
+            margin: 10px;
+            font-size: 10px;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out;
+            height: 2px;
+            
+        }
+        
+        .timeoption i:hover {
+            color: #ffcc00;
+        }
+        
+        .main-div {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            height: 2vh;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="clockholder">
+            <div class="timeholoder">
+                <div class="timeoption">
+                    <i class="fas fa-clock" data-title="Time"></i>
+                    <i class="fas fa-stopwatch" data-title="stopWatch"></i>
+                    <i class="far fa-clock" data-title="countDown"></i>
+                   
+                </div>
+                <div class="main-div">
+                    <p id="clock"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const currentTime=()=>{
+            let time=new Date().toLocaleTimeString();
+            document.getElementById("clock").innerText=time; 
+        }
+        currentTime();
+        const intervalid=setInterval(()=>{
+            currentTime();
+        },1000);
+        
+       //setTimeout(()=>clearInterval(intervalid),5000);
+    </script>
+</body>
+</html>
